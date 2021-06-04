@@ -12,8 +12,12 @@ var regions = [];
             var tds = trs[idx].children;
             var regionCode = tds[1].innerText;
             var regionName = tds[2].innerText.trim();
-
-            if(regionCode == ""){
+            //三沙市新建区未分配代码临时处理逻辑
+            if(regionCode == ""&&regionName =="西沙区" ){
+                regionCode = "460302";
+            } else if(regionCode == ""&&regionName =="南沙区"){
+                regionCode = "460303";
+            } else if(regionCode == ""){
                 break;
             }
 
