@@ -30,7 +30,13 @@ var regions = [];
                 region.parentCode = upregionParentCode_0;
                 upregionParentCode_1 = region.code
             } else if(tds[2].children[0].innerText.length == 3){
-                region.parentCode = upregionParentCode_1 == ""?upregionParentCode_0:upregionParentCode_1;
+                if(upregionParentCode_1 == ""){
+                    region.parentCode = upregionParentCode_0;
+                } else if(upregionParentCode_0.substring(0,3) != upregionParentCode_1.substring(0,3)){
+                    region.parentCode = upregionParentCode_0;
+                } else {
+                    region.parentCode = upregionParentCode_1;
+                }
                 upregionParentCode_3 = region.code
             }
             regions.push(region);
